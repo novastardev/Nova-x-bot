@@ -1,4 +1,4 @@
-const { Client } = require('whatsapp-web.js');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 const puppeteer = require('puppeteer-core');
 const express = require('express');
 const fs = require('fs');
