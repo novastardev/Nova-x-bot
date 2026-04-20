@@ -8,6 +8,12 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+const puppeteer = require("puppeteer");
+
+const browser = await puppeteer.launch({
+  args: ["--no-sandbox", "--disable-setuid-sandbox"]
+});
+
 const client = new Client({
     puppeteer: { headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'], },
     authStrategy: new LocalAuth(),
