@@ -1,19 +1,18 @@
 {
-  "name": "nova-bot",
+  "name": "Nova-x bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "My WhatsApp Bot for many purposes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "@whiskeysockets/baileys": "^7.0.0-rc.9",
-    "node-fetch": "^3.3.2",
-    "pino": "^10.3.1",
-    "qrcode-terminal": "^0.12.0"
-  }
+    "whatsapp-web.js": "^1.0.0",
+    "puppeteer": "^10.0.0"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "author": "Novastar",
+  "license": "ISC"
 }
