@@ -1,35 +1,30 @@
-# Use the official Node.js 18 slim base image
-FROM node:18-slim
+FROM node:18
 
-# Install the required system dependencies for Chromium and Puppeteer
+# Install required dependencies for Puppeteer
 RUN apt-get update && apt-get install -y \
-    wget \
-    --no-install-recommends \
+    chromium \
+    libglib2.0-0 \
     libnss3 \
-    libgconf-2-4 \
-    libxss1 \
-    libasound2 \
-    fonts-liberation \
+    libatk-bridge2.0-0 \
     libx11-xcb1 \
-    libxcomposite-dev \
-    libxcursor-dev \
-    libxi6 \
-    libxtst6 \
+    libxcomposite1 \
+    libxdamage1 \
     libxrandr2 \
-    libcups2-dev \
+    libgbm1 \
+    libasound2 \
+    libpangocairo-1.0-0 \
+    libcups2 \
+    libatk1.0-0 \
     libgtk-3-0 \
-    libdbus-glib-1-2 \
-    libxss1 \
+    libxshmfence1 \
+    libdrm2 \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory
 WORKDIR /app
 
-# Install Puppeteer
-RUN npm install puppeteer
+COPY package*.json ./
+RUN npm install
 
-# Copy the rest of your application files
 COPY . .
 
-# Start your application (adjust according to your app startup command)
-CMD ["node", "your-app.js"]
+CMD ["node", "index.js"]
